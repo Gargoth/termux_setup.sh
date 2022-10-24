@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run with the command below
-# sudo curl -sLf <replace with URL to raw> | bash
+# curl -sLf <replace with URL to raw> | bash
 
 # WARNING: Only run this script on a fresh install of termux, entire directories may be lost when the script runs
 
