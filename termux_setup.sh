@@ -31,6 +31,8 @@ fail () {
 packages=(
     'tsu'
     'fish'
+    'fisher'
+    'hydro'
     'node'
     'yarn'
     'neovim'
@@ -45,10 +47,10 @@ packages=(
 )
 
 ensure_requirements() {
+    info "Upgrading packages"
+    pkg upgrade -y
     info "Ensuring wget, curl, tar, and git are installed"
     pkg install wget curl tar git -qy
-    info "Upgrading packages"
-    pkg upgrade -qy
 }
 
 install_tsu() {
@@ -70,6 +72,17 @@ install_fish() {
     cd ~/.config/fish/
     git clone https://github.com/Gargoth/fish-config.git . && success "fish configs cloned" || fail "fish configs failed to clone"
     cd ~
+}
+
+install_fisher() {
+    info "Installing fisher"
+    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher && success "fisher installed" || fail "fisher failed to install"
+}
+
+install_hydro() {
+    info "Installing hydro"
+    fisher install jorgebucaran/hydro && success "hydro installed" || fail "hydro failed to install"
+
 }
 
 install_node() {
