@@ -48,7 +48,7 @@ ensure_requirements() {
     info "Ensuring wget, curl, tar, and git are installed"
     pkg install wget curl tar git -qy
     info "Upgrading packages"
-    pkg upgrade
+    pkg upgrade -qy
 }
 
 install_tsu() {
